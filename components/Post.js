@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import CategoryLabel from "./CategoryLabel"
 
 export default function Post({ post }) {
     const router = useRouter()
@@ -17,11 +18,11 @@ export default function Post({ post }) {
                 <span className="font-light text-gray-600">
                     {post.frontmatter.date}
                 </span>
-                <div>{post.frontmatter.category}</div>
+                <CategoryLabel>{post.frontmatter.category}</CategoryLabel>
             </div>
 
             <div className="mt-2">
-                <Link href=''>
+                <Link href='#'>
                     <a className="text-2xl text-gray-700 font-bold hover:underline" onClick={blogPage}>
                         {post.frontmatter.title}
                     </a>
@@ -30,7 +31,7 @@ export default function Post({ post }) {
             </div>
 
             <div className="flex justify-between items-center mt-6">
-                <Link href=''>
+                <Link href='#'>
                     <a className="text-gray-900 hover:text-blue-600" onClick={blogPage}>
                         Read More
                     </a>
