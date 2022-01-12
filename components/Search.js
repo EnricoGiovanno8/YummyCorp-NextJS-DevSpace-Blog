@@ -3,7 +3,22 @@ import { FaSearch } from 'react-icons/fa'
 
 export default function Search() {
     const [searchTerm, setSearchTerm] = useState('')
-    const [searchResults, setSearchResults] = useState('')
+    const [searchResults, setSearchResults] = useState([])
+
+    const getResults = async () => {
+        if (searchTerm === '') {
+            setSearchResults([])
+        } else {
+            const res = await fetch(`/api/search?q=${searchTerm}`)
+            const { results } = await res.json()
+            setSearchResults(results)
+        }
+    }
+
+    useEffect(() => {
+        getResults()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchTerm])
 
     return (
         <div className="relative bg-gray-600 p-4">
