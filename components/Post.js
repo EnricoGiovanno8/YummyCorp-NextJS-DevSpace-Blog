@@ -39,7 +39,7 @@ export default function Post({ post }) {
                 <div className="flex items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={post.frontmatter.author_image} alt="" className="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block"/>
-                    <h3 className="text-gray-700 font-bold">{post.frontmatter.author}</h3>
+                    <h5 className="text-gray-700 font-bold">{post.frontmatter.author}</h5>
                 </div>
             </div>
         </div>
